@@ -1,0 +1,47 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  binaryTargets = ["native", "debian-openssl-1.1.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+model Professor {
+  id        Int      @id @default(autoincrement())
+  nome      String 
+  email String @unique
+  createdAt DateTime @default(now())
+  disciplina String
+  alunos    Aluno[]
+}
+
+model Aluno {
+  id         Int      @id @default(autoincrement())
+  nome       String
+  idade      Int
+  email String @unique
+  createdAt DateTime @default(now())
+  notas      Nota[]
+  professor  Professor? @relation(fields: [professorId], references: [id])
+  professorId Int?
+}
+
+model Nota {
+  id       Int    @id @default(autoincrement())
+  valor    Float
+  aluno    Aluno  @relation(fields: [alunoId], references: [id])
+  alunoId  Int
+}
+
+model Diretor {
+  id   Int    @id @default(autoincrement())
+  nome String
+  email String @unique
+  createdAt DateTime @default(now())
+}

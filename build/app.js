@@ -1,0 +1,23 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express = require('express');
+const dotenv = require('dotenv');
+const cors = require('cors');
+dotenv.config();
+const routeProfessor_1 = __importDefault(require("./routes/routeProfessor"));
+const routeAlunos_1 = __importDefault(require("./routes/routeAlunos"));
+const routeNotas_1 = __importDefault(require("./routes/routeNotas"));
+const routeDiretor_1 = __importDefault(require("./routes/routeDiretor"));
+const body_parser_1 = __importDefault(require("body-parser"));
+const app = express();
+app.use(express.json());
+app.use(cors());
+app.use(routeProfessor_1.default);
+app.use(routeAlunos_1.default);
+app.use(routeNotas_1.default);
+app.use(routeDiretor_1.default);
+app.use(body_parser_1.default.urlencoded({ extended: true }));
+module.exports = app;
