@@ -21,4 +21,4 @@ app.use(routeDiretor);
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-module.exports = app;
+export default app;

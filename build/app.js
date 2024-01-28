@@ -20,4 +20,4 @@ app.use(routeAlunos_1.default);
 app.use(routeNotas_1.default);
 app.use(routeDiretor_1.default);
 app.use(body_parser_1.default.urlencoded({ extended: true }));
-module.exports = app;
+exports.default = app;
