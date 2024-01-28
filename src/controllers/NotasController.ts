@@ -23,7 +23,7 @@ class NotasController implements NotaDto {
     try {
       const { id } = req.params;
       const result = await this.notas.getNotaById(Number(id));
-      if (result) {
+      if (result !== null) {
         return res.status(Status.OK).json({ message: result });
       } else {
         return res.status(Status.Not_Found).json({ message: "Nota not found" });
