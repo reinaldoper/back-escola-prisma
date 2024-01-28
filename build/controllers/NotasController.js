@@ -30,7 +30,12 @@ class NotasController {
             try {
                 const { id } = req.params;
                 const result = yield this.notas.getNotaById(Number(id));
-                return res.status(Status_1.Status.OK).json({ message: result });
+                if (result !== null) {
+                    return res.status(Status_1.Status.OK).json({ message: result });
+                }
+                else {
+                    return res.status(Status_1.Status.Not_Found).json({ message: "Nota not found" });
+                }
             }
             catch (error) {
                 return res.status(Status_1.Status.InternalError).json({ error: "Internal error" });
