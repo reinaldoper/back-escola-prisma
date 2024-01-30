@@ -12,6 +12,7 @@ class Professores {
         id: true,
         nome: true,
         disciplina: true,
+        email: true,
         createdAt: true,
         alunos: true,
       }
@@ -29,6 +30,7 @@ class Professores {
       select: {
         id: true,
         nome: true,
+        email: true,
         disciplina: true,
         createdAt: true,
         alunos: true,
@@ -43,6 +45,7 @@ class Professores {
       select: {
         id: true,
         nome: true,
+        email: true,
         disciplina: true,
         createdAt: true,
         alunos: true,
@@ -64,6 +67,7 @@ class Professores {
         select: {
           id: true,
           nome: true,
+          email: true,
           disciplina: true,
           createdAt: true,
           alunos: true,
