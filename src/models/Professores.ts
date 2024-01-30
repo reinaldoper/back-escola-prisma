@@ -9,6 +9,7 @@ class Professores {
   public getProfessores = async (): Promise<IProfessor[]> => {
     const returnProfessores = await this.prismaCLient.professor.findMany({
       select: {
+        id: true,
         nome: true,
         disciplina: true,
         createdAt: true,
@@ -26,6 +27,7 @@ class Professores {
         email: professor.email,
       },
       select: {
+        id: true,
         nome: true,
         disciplina: true,
         createdAt: true,
@@ -39,6 +41,7 @@ class Professores {
     const data = await this.prismaCLient.professor.findUnique({
       where: { id: id },
       select: {
+        id: true,
         nome: true,
         disciplina: true,
         createdAt: true,
@@ -59,6 +62,7 @@ class Professores {
           disciplina: disciplina
         },
         select: {
+          id: true,
           nome: true,
           disciplina: true,
           createdAt: true,
