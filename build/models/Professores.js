@@ -21,6 +21,7 @@ class Professores {
                 select: {
                     id: true,
                     nome: true,
+                    role: true,
                     disciplina: true,
                     email: true,
                     createdAt: true,
