@@ -9,6 +9,7 @@ class Diretor {
     const result = await this.prismaClient.diretor.findMany({
       select: {
         id: true,
+        role: true,
         createdAt: true,
         nome: true,
         email: true
@@ -25,6 +26,7 @@ class Diretor {
       },
       select: {
         id: true,
+        role: true,
         createdAt: true,
         nome: true,
         email: true
@@ -40,6 +42,7 @@ class Diretor {
       where: { id: id },
       select: {
         id: true,
+        role: true,
         createdAt: true,
         nome: true,
         email: true
@@ -61,6 +64,7 @@ class Diretor {
         },
         select: {
           id: true,
+          role: true,
           createdAt: true,
           nome: true,
           email: true

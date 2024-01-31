@@ -17,6 +17,7 @@ model Professor {
   nome      String 
   email String @unique
   createdAt DateTime @default(now())
+  role    Role     @default(ADMIN)
   disciplina String
   alunos    Aluno[]
 }
@@ -26,6 +27,7 @@ model Aluno {
   nome       String
   idade      Int
   email String @unique
+  role    Role     @default(USER)
   createdAt DateTime @default(now())
   notas      Nota[]
   professor  Professor? @relation(fields: [professorId], references: [id])
@@ -43,5 +45,12 @@ model Diretor {
   id   Int    @id @default(autoincrement())
   nome String
   email String @unique
+  role    Role     @default(DIR)
   createdAt DateTime @default(now())
+}
+
+enum Role {
+  USER
+  ADMIN
+  DIR
 }

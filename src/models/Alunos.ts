@@ -13,6 +13,7 @@ class Alunos {
       select: {
         id: true,
         nome: true,
+        role: true,
         professor: true,
         createdAt: true,
       }
@@ -34,6 +35,7 @@ class Alunos {
         },
         select: {
           nome: true,
+          role: true,
           email: true,
           professor: true,
           createdAt: true,
@@ -50,6 +52,7 @@ class Alunos {
       select: {
         id: true,
         nome: true,
+        role: true,
         professor: true,
         createdAt: true,
       }
@@ -68,6 +71,7 @@ class Alunos {
         },
         select: {
           nome: true,
+          role: true,
           professor: true,
           createdAt: true,
         }

@@ -30,6 +30,7 @@ class Professores {
       select: {
         id: true,
         nome: true,
+        role: true,
         email: true,
         disciplina: true,
         createdAt: true,
@@ -45,6 +46,7 @@ class Professores {
       select: {
         id: true,
         nome: true,
+        role: true,
         email: true,
         disciplina: true,
         createdAt: true,
@@ -67,6 +69,7 @@ class Professores {
         select: {
           id: true,
           nome: true,
+          role: true,
           email: true,
           disciplina: true,
           createdAt: true,
