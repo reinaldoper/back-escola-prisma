@@ -27,6 +27,7 @@ class Alunos {
                     email: true,
                     professor: true,
                     createdAt: true,
+                    notas: true
                 }
             });
             return alunos;
@@ -65,6 +66,7 @@ class Alunos {
                     email: true,
                     professor: true,
                     createdAt: true,
+                    notas: true
                 }
             });
             return data;

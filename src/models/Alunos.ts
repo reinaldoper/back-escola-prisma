@@ -17,6 +17,7 @@ class Alunos {
         email: true,
         professor: true,
         createdAt: true,
+        notas: true
       }
     });
     return alunos as unknown as IAluno[];
@@ -57,6 +58,7 @@ class Alunos {
         email: true,
         professor: true,
         createdAt: true,
+        notas: true
       }
     })
 
