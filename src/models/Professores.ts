@@ -79,22 +79,22 @@ class Professores {
       });
       return updated as unknown as IProfessor;
     } else {
-      return "Professor not found";
+      return "Teacher not found";
     }
   };
 
   public deleteProfessor = async (id: number): Promise<string> => {
     const verify = await this.getProfessorById(id);
     if (!verify) {
-      return "User does not exist"
+      return "Teacher does not exist"
     } else {
-      this.prismaCLient.professor.delete({
+      await this.prismaCLient.professor.delete({
         where: {
           id: id,
         }
       })
 
-      return `Deleted user with id: ${id}`;
+      return `Deleted teacher with id: ${id}`;
     }
   }
 

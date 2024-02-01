@@ -25,7 +25,7 @@ class Alunos {
   public createAluno = async (aluno: IAluno): Promise<IAluno | string> => {
     const existeProfessor = await this.professor.getProfessorById(aluno.professorId);
     if (!existeProfessor) {
-      return "Professor not found"
+      return "Student not found"
     } else {
       const created = await this.prismaClient.aluno.create({
         data: {
@@ -81,22 +81,22 @@ class Alunos {
       });
       return updated as unknown as IAluno;
     } else {
-      return "Aluno not found";
+      return "Student not found";
     }
   };
 
   public deleteAluno = async (id: number): Promise<string> => {
     const verify = await this.getAlunoById(id);
     if (!verify) {
-      return "User does not exist"
+      return "Student does not exist"
     } else {
-      this.prismaClient.aluno.delete({
+      await this.prismaClient.aluno.delete({
         where: {
           id: id,
         }
       })
 
-      return `Deleted user with id: ${id}`;
+      return `Deleted student with id: ${id}`;
     }
   }
 

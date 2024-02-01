@@ -76,7 +76,7 @@ class Notas {
     if (!verify) {
       return "Not found";
     } else {
-      this.prismaClent.nota.delete({
+      await this.prismaClent.nota.delete({
         where: { id: id },
       })
       return "Deleted";

@@ -80,7 +80,7 @@ class Diretor {
     if (!verify) {
       return "Diretor not found"
     } else {
-      this.prismaClient.diretor.delete({
+      await this.prismaClient.diretor.delete({
         where: { id: id },
       })
 

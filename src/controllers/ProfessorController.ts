@@ -37,7 +37,7 @@ class ProfessorController implements ProfessorDto {
       if (result) {
         return res.status(Status.OK).json({ message: result });
       } else {
-        return res.status(Status.Not_Found).json({ message: "User not found" });
+        return res.status(Status.Not_Found).json({ message: "Teacher not found" });
       }
     } catch (error) {
       return res.status(Status.InternalError).json({ message: "Internal error" });
@@ -53,7 +53,7 @@ class ProfessorController implements ProfessorDto {
       const { nome, disciplina } = req.body;
       const result = await this.professor.updateProfessor(Number(id), nome, disciplina);
 
-      if (result === "Professor not found") {
+      if (result === "Teacher not found") {
         return res.status(Status.Not_Found).json({ message: result });
       } else {
         return res.status(Status.OK).json({ message: result });
