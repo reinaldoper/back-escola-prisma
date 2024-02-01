@@ -86,21 +86,21 @@ class Professores {
                 return updated;
             }
             else {
-                return "Professor not found";
+                return "Teacher not found";
             }
         });
         this.deleteProfessor = (id) => __awaiter(this, void 0, void 0, function* () {
             const verify = yield this.getProfessorById(id);
             if (!verify) {
-                return "User does not exist";
+                return "Teacher does not exist";
             }
             else {
-                this.prismaCLient.professor.delete({
+                yield this.prismaCLient.professor.delete({
                     where: {
                         id: id,
                     }
                 });
-                return `Deleted user with id: ${id}`;
+                return `Deleted teacher with id: ${id}`;
             }
         });
     }

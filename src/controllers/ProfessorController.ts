@@ -70,6 +70,9 @@ class ProfessorController implements ProfessorDto {
     try {
       const { id } = req.params;
       const request = await this.professor.deleteProfessor(Number(id));
+      if(request === 'Teacher does not exist'){
+        return res.status(Status.Not_Found).json({ message: request });
+      }
       return res.status(Status.OK).json({ message: request });
     } catch (error) {
       return res.status(Status.InternalError).json({ message: "Internal error" });

@@ -43,7 +43,7 @@ class ProfessorController {
                     return res.status(Status_1.Status.OK).json({ message: result });
                 }
                 else {
-                    return res.status(Status_1.Status.Not_Found).json({ message: "User not found" });
+                    return res.status(Status_1.Status.Not_Found).json({ message: "Teacher not found" });
                 }
             }
             catch (error) {
@@ -55,7 +55,7 @@ class ProfessorController {
                 const { id } = req.params;
                 const { nome, disciplina } = req.body;
                 const result = yield this.professor.updateProfessor(Number(id), nome, disciplina);
-                if (result === "Professor not found") {
+                if (result === "Teacher not found") {
                     return res.status(Status_1.Status.Not_Found).json({ message: result });
                 }
                 else {
@@ -70,6 +70,9 @@ class ProfessorController {
             try {
                 const { id } = req.params;
                 const request = yield this.professor.deleteProfessor(Number(id));
+                if (request === 'Teacher does not exist') {
+                    return res.status(Status_1.Status.Not_Found).json({ message: request });
+                }
                 return res.status(Status_1.Status.OK).json({ message: request });
             }
             catch (error) {

@@ -80,7 +80,7 @@ class Notas {
                 return "Not found";
             }
             else {
-                this.prismaClent.nota.delete({
+                yield this.prismaClent.nota.delete({
                     where: { id: id },
                 });
                 return "Deleted";

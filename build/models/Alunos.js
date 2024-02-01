@@ -34,7 +34,7 @@ class Alunos {
         this.createAluno = (aluno) => __awaiter(this, void 0, void 0, function* () {
             const existeProfessor = yield this.professor.getProfessorById(aluno.professorId);
             if (!existeProfessor) {
-                return "Professor not found";
+                return "Student not found";
             }
             else {
                 const created = yield this.prismaClient.aluno.create({
@@ -88,21 +88,21 @@ class Alunos {
                 return updated;
             }
             else {
-                return "Aluno not found";
+                return "Student not found";
             }
         });
         this.deleteAluno = (id) => __awaiter(this, void 0, void 0, function* () {
             const verify = yield this.getAlunoById(id);
             if (!verify) {
-                return "User does not exist";
+                return "Student does not exist";
             }
             else {
-                this.prismaClient.aluno.delete({
+                yield this.prismaClient.aluno.delete({
                     where: {
                         id: id,
                     }
                 });
-                return `Deleted user with id: ${id}`;
+                return `Deleted student with id: ${id}`;
             }
         });
     }
