@@ -114,7 +114,7 @@ message": [
 ```
 
 
-### Rota da API ja com deploy:
+### Rota da API com deploy:
 
 `https://escola-prisma.vercel.app/`
 
