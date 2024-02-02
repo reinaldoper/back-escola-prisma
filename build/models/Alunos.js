@@ -71,13 +71,14 @@ class Alunos {
             });
             return data;
         });
-        this.updateAluno = (id, nome) => __awaiter(this, void 0, void 0, function* () {
+        this.updateAluno = (id, nome, professorId) => __awaiter(this, void 0, void 0, function* () {
             const verify = yield this.getAlunoById(id);
             if (verify) {
                 const updated = yield this.prismaClient.aluno.update({
                     where: { id: id },
                     data: {
-                        nome: nome
+                        nome: nome,
+                        professorId: professorId,
                     },
                     select: {
                         nome: true,

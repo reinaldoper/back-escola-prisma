@@ -44,8 +44,8 @@ class AlunosController {
         this.updateAluno = (req, res) => __awaiter(this, void 0, void 0, function* () {
             try {
                 const { id } = req.params;
-                const { nome } = req.body;
-                const result = yield this.alunos.updateAluno(Number(id), nome);
+                const { nome, professorId } = req.body;
+                const result = yield this.alunos.updateAluno(Number(id), nome, Number(professorId));
                 return res.status(Status_1.Status.OK).json({ message: result });
             }
             catch (error) {

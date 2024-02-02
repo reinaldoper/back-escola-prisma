@@ -26,8 +26,8 @@ const errorIdAluno = (req, res, next) => {
 };
 exports.errorIdAluno = errorIdAluno;
 const errorAlunoPut = (req, res, next) => {
-    const { nome } = req.body;
-    if (!nome || nome.length === 0) {
+    const { nome, professorId } = req.body;
+    if (!nome || nome.length === 0 && isNaN(Number(professorId))) {
         return res.status(Status_1.Status.BedRequest).json({ error: "Invalid parameters" });
     }
     else {
