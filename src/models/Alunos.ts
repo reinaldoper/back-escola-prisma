@@ -65,13 +65,14 @@ class Alunos {
     return data as unknown as IAluno[];
   };
 
-  public updateAluno = async (id: number, nome: string): Promise<IAluno | string> => {
+  public updateAluno = async (id: number, nome: string,  professorId: number): Promise<IAluno | string> => {
     const verify = await this.getAlunoById(id);
     if (verify) {
       const updated = await this.prismaClient.aluno.update({
         where: { id: id },
         data: {
-          nome: nome
+          nome: nome,
+          professorId: professorId,
         },
         select: {
           nome: true,

@@ -38,8 +38,8 @@ class AlunosController implements AlunoDto {
   public updateAluno = async (req: Request, res: Response) => {
     try {
       const { id } = req.params;
-      const { nome } = req.body;
-      const result = await this.alunos.updateAluno(Number(id), nome);
+      const { nome, professorId } = req.body;
+      const result = await this.alunos.updateAluno(Number(id), nome, Number(professorId));
       return res.status(Status.OK).json({ message: result });
     } catch (error) {
       return res.status(Status.InternalError).json({ error: "Internal error" });
