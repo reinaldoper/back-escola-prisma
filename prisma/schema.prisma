@@ -30,7 +30,7 @@ model Aluno {
   role    Role     @default(USER)
   createdAt DateTime @default(now())
   notas      Nota[]
-  professor  Professor? @relation(fields: [professorId], references: [id])
+  professor  Professor? @relation(fields: [professorId], references: [id], onDelete: Cascade)
   professorId Int?
 }
 
