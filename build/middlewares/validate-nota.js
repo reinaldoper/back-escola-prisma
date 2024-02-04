@@ -3,8 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.errorValor = exports.errorNotaId = exports.errorNotas = void 0;
 const Status_1 = require("../Status");
 const errorNotas = (req, res, next) => {
-    const { valor, alunoId } = req.body;
-    if (!valor || !alunoId) {
+    const { valor, alunoId, semestre } = req.body;
+    if (!valor || !alunoId || !semestre) {
         return res.status(Status_1.Status.BedRequest).json({ error: "Invalid parameters" });
     }
     else {
@@ -23,8 +23,8 @@ const errorNotaId = (req, res, next) => {
 };
 exports.errorNotaId = errorNotaId;
 const errorValor = (req, res, next) => {
-    const { valor } = req.body;
-    if (!valor || isNaN(Number(valor))) {
+    const { valor, semestre } = req.body;
+    if (!valor || isNaN(Number(valor)) || !semestre) {
         return res.status(Status_1.Status.BedRequest).json({ error: "Invalid parameters" });
     }
     else {

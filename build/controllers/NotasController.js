@@ -44,8 +44,8 @@ class NotasController {
         this.updateNota = (req, res) => __awaiter(this, void 0, void 0, function* () {
             try {
                 const { id } = req.params;
-                const { valor } = req.body;
-                const result = yield this.notas.updateNota(Number(id), Number(valor));
+                const { valor, semestre } = req.body;
+                const result = yield this.notas.updateNota(Number(id), Number(valor), semestre);
                 return res.status(Status_1.Status.OK).json({ message: result });
             }
             catch (error) {
@@ -64,8 +64,8 @@ class NotasController {
         });
         this.createNota = (req, res) => __awaiter(this, void 0, void 0, function* () {
             try {
-                const { valor, alunoId } = req.body;
-                const result = yield this.notas.createNota(Number(valor), Number(alunoId));
+                const { valor, alunoId, semestre } = req.body;
+                const result = yield this.notas.createNota(Number(valor), Number(alunoId), semestre);
                 return res.status(Status_1.Status.Created).json({ message: result });
             }
             catch (error) {

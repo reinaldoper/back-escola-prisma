@@ -23,21 +23,24 @@ class Notas {
                     aluno: true,
                     alunoId: true,
                     valor: true,
+                    semestre: true,
                 }
             });
             return result;
         });
-        this.createNota = (valor, alunoId) => __awaiter(this, void 0, void 0, function* () {
+        this.createNota = (valor, alunoId, semestre) => __awaiter(this, void 0, void 0, function* () {
             const result = yield this.prismaClent.nota.create({
                 data: {
                     valor: valor,
                     alunoId: alunoId,
+                    semestre: semestre,
                 },
                 select: {
                     id: true,
                     aluno: true,
                     alunoId: true,
                     valor: true,
+                    semestre: true,
                 }
             });
             return result;
@@ -50,17 +53,19 @@ class Notas {
                     aluno: true,
                     alunoId: true,
                     valor: true,
+                    semestre: true,
                 }
             });
             return result;
         });
-        this.updateNota = (id, valor) => __awaiter(this, void 0, void 0, function* () {
+        this.updateNota = (id, valor, semestre) => __awaiter(this, void 0, void 0, function* () {
             const verify = yield this.getNotaById(id);
             if (verify) {
                 const result = yield this.prismaClent.nota.update({
                     where: { id: id },
                     data: {
                         valor: valor,
+                        semestre: semestre
                     },
                     select: {
                         aluno: true,

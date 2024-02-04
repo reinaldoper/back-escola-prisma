@@ -37,6 +37,7 @@ model Aluno {
 model Nota {
   id       Int    @id @default(autoincrement())
   valor    Float
+  semestre String?
   aluno    Aluno  @relation(fields: [alunoId], references: [id])
   alunoId  Int
 }

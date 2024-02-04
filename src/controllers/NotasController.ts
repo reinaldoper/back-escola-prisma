@@ -37,8 +37,8 @@ class NotasController implements NotaDto {
   public updateNota = async (req: Request, res: Response) => {
     try {
       const { id } = req.params;
-      const { valor } = req.body;
-      const result = await this.notas.updateNota(Number(id), Number(valor));
+      const { valor, semestre } = req.body;
+      const result = await this.notas.updateNota(Number(id), Number(valor), semestre);
       return res.status(Status.OK).json({ message: result });
     } catch (error) {
       return res.status(Status.InternalError).json({ error: "Internal error" });
@@ -59,8 +59,8 @@ class NotasController implements NotaDto {
 
   public createNota = async (req: Request, res: Response) => {
     try {
-      const { valor, alunoId } = req.body;
-      const result = await this.notas.createNota(Number(valor), Number(alunoId));
+      const { valor, alunoId, semestre } = req.body;
+      const result = await this.notas.createNota(Number(valor), Number(alunoId), semestre);
       return res.status(Status.Created).json({ message: result });
     } catch (error) {
       return res.status(Status.InternalError).json({ error: "Internal error" });

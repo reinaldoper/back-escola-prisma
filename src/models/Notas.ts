@@ -12,23 +12,26 @@ class Notas {
         aluno: true,
         alunoId: true,
         valor: true,
+        semestre: true,
       }
     });
     return result as unknown as INotas[];
   }
 
-  public createNota = async (valor: number, alunoId: number): Promise<INotas> => {
+  public createNota = async (valor: number, alunoId: number, semestre: string): Promise<INotas> => {
 
     const result = await this.prismaClent.nota.create({
       data: {
         valor: valor,
         alunoId: alunoId,
+        semestre: semestre,
       },
       select: {
         id: true,
         aluno: true,
         alunoId: true,
         valor: true,
+        semestre: true,
       }
     });
 
@@ -43,19 +46,21 @@ class Notas {
         aluno: true,
         alunoId: true,
         valor: true,
+        semestre: true,
       }
     });
 
     return result as unknown as INotas[];
   }
 
-  public updateNota = async (id: number, valor: number): Promise<INotas | string> => {
+  public updateNota = async (id: number, valor: number, semestre: string): Promise<INotas | string> => {
     const verify = await this.getNotaById(id);
     if (verify) {
       const result = await this.prismaClent.nota.update({
         where: { id: id },
         data: {
           valor: valor,
+          semestre: semestre
         },
         select: {
           aluno: true,
