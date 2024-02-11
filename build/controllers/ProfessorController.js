@@ -32,7 +32,7 @@ class ProfessorController {
                 return res.status(Status_1.Status.OK).json({ message: data });
             }
             catch (error) {
-                return res.status(Status_1.Status.InternalError).json({ message: "Internal error" });
+                return res.status(Status_1.Status.InternalError).json({ error: "Internal error" });
             }
         });
         this.getProfessorById = (req, res) => __awaiter(this, void 0, void 0, function* () {
@@ -43,11 +43,11 @@ class ProfessorController {
                     return res.status(Status_1.Status.OK).json({ message: result });
                 }
                 else {
-                    return res.status(Status_1.Status.Not_Found).json({ message: "Teacher not found" });
+                    return res.status(Status_1.Status.Not_Found).json({ error: "Teacher not found" });
                 }
             }
             catch (error) {
-                return res.status(Status_1.Status.InternalError).json({ message: "Internal error" });
+                return res.status(Status_1.Status.InternalError).json({ error: "Internal error" });
             }
         });
         this.updateProfessor = (req, res) => __awaiter(this, void 0, void 0, function* () {
@@ -56,27 +56,28 @@ class ProfessorController {
                 const { nome, disciplina } = req.body;
                 const result = yield this.professor.updateProfessor(Number(id), nome, disciplina);
                 if (result === "Teacher not found") {
-                    return res.status(Status_1.Status.Not_Found).json({ message: result });
+                    return res.status(Status_1.Status.Not_Found).json({ error: result });
                 }
                 else {
                     return res.status(Status_1.Status.OK).json({ message: result });
                 }
             }
             catch (error) {
-                return res.status(Status_1.Status.InternalError).json({ message: "Internal error" });
+                return res.status(Status_1.Status.InternalError).json({ error: "Internal error" });
             }
         });
+        //método delete teacher
         this.deleteProfessor = (req, res) => __awaiter(this, void 0, void 0, function* () {
             try {
                 const { id } = req.params;
                 const request = yield this.professor.deleteProfessor(Number(id));
                 if (request === 'Teacher does not exist') {
-                    return res.status(Status_1.Status.Not_Found).json({ message: request });
+                    return res.status(Status_1.Status.Not_Found).json({ error: request });
                 }
                 return res.status(Status_1.Status.OK).json({ message: request });
             }
             catch (error) {
-                return res.status(Status_1.Status.InternalError).json({ message: "Internal error" });
+                return res.status(Status_1.Status.InternalError).json({ error: "Teacher with students associated." });
             }
         });
     }

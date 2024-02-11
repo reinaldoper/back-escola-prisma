@@ -34,7 +34,7 @@ class NotasController {
                     return res.status(Status_1.Status.OK).json({ message: result });
                 }
                 else {
-                    return res.status(Status_1.Status.Not_Found).json({ message: "Nota not found" });
+                    return res.status(Status_1.Status.Not_Found).json({ error: "Nota not found" });
                 }
             }
             catch (error) {
