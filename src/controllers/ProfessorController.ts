@@ -64,7 +64,7 @@ class ProfessorController implements ProfessorDto {
 
   };
 
-
+  //método delete teacher
   public deleteProfessor = async (req: Request, res: Response) => {
     
     try {
