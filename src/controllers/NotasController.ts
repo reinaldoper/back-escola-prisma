@@ -26,7 +26,7 @@ class NotasController implements NotaDto {
       if (result !== null) {
         return res.status(Status.OK).json({ message: result });
       } else {
-        return res.status(Status.Not_Found).json({ message: "Nota not found" });
+        return res.status(Status.Not_Found).json({ error: "Nota not found" });
       }
     } catch (error) {
       return res.status(Status.InternalError).json({ error: "Internal error" });

@@ -23,7 +23,7 @@ class ProfessorController implements ProfessorDto {
 
       return res.status(Status.OK).json({ message: data });
     } catch (error) {
-      return res.status(Status.InternalError).json({ message: "Internal error" });
+      return res.status(Status.InternalError).json({ error: "Internal error" });
     }
   };
 
@@ -37,10 +37,10 @@ class ProfessorController implements ProfessorDto {
       if (result) {
         return res.status(Status.OK).json({ message: result });
       } else {
-        return res.status(Status.Not_Found).json({ message: "Teacher not found" });
+        return res.status(Status.Not_Found).json({ error: "Teacher not found" });
       }
     } catch (error) {
-      return res.status(Status.InternalError).json({ message: "Internal error" });
+      return res.status(Status.InternalError).json({ error: "Internal error" });
     }
   };
 
@@ -54,12 +54,12 @@ class ProfessorController implements ProfessorDto {
       const result = await this.professor.updateProfessor(Number(id), nome, disciplina);
 
       if (result === "Teacher not found") {
-        return res.status(Status.Not_Found).json({ message: result });
+        return res.status(Status.Not_Found).json({ error: result });
       } else {
         return res.status(Status.OK).json({ message: result });
       }
     } catch (error) {
-      return res.status(Status.InternalError).json({ message: "Internal error" });
+      return res.status(Status.InternalError).json({ error: "Internal error" });
     }
 
   };
@@ -71,11 +71,11 @@ class ProfessorController implements ProfessorDto {
       const { id } = req.params;
       const request = await this.professor.deleteProfessor(Number(id));
       if(request === 'Teacher does not exist'){
-        return res.status(Status.Not_Found).json({ message: request });
+        return res.status(Status.Not_Found).json({ error: request });
       }
       return res.status(Status.OK).json({ message: request });
     } catch (error) {
-      return res.status(Status.InternalError).json({ message: "Internal error" });
+      return res.status(Status.InternalError).json({ error: "Teacher with students associated." });
     }
   }
 }

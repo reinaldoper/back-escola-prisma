@@ -26,7 +26,7 @@ class AlunosController implements AlunoDto {
       if (result) {
         return res.status(Status.OK).json({ message: result });
       } else {
-        return res.status(Status.Not_Found).json({ message: "Aluno not found" });
+        return res.status(Status.Not_Found).json({ error: "Aluno not found" });
       }
     } catch (error) {
       return res.status(Status.InternalError).json({ error: "Internal error" });
