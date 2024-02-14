@@ -38,7 +38,7 @@ model Nota {
   id       Int    @id @default(autoincrement())
   valor    Float
   semestre String?
-  aluno    Aluno  @relation(fields: [alunoId], references: [id])
+  aluno    Aluno  @relation(fields: [alunoId], references: [id], onDelete: Cascade)
   alunoId  Int
 }
 
