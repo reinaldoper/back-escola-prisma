@@ -2,6 +2,10 @@
 
 - Este é um projeto simples de uma API para uma escola, desenvolvido com Node.js, ORM Prisma, Express e TypeScript.
 
+## License
+
+[license](./LICENCE)
+
 ## Instalação
 
 - Certifique-se de ter o Node.js e o npm instalados em sua máquina. Em seguida, siga os passos abaixo:
