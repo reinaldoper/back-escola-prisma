@@ -11,3 +11,6 @@ if (!serverStarted) {
 
   serverStarted = true;
 }
+
+
+export default App;
