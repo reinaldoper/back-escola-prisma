@@ -61,4 +61,28 @@ describe('Testes da API Professores', () => {
     expect(status).to.be.equal(400);
     expect(body.error).to.deep.equal("Invalid id type");
   });
+
+  it('Deve retornar Invalid type id for delete.', async () => {
+    const id = 'f'
+    responseHttp = await chai
+      .request(app)
+      .delete(`/api/professor/${id}`)
+
+    const { status, body } = responseHttp;
+    expect(status).to.be.equal(400);
+    expect(body.error).to.deep.equal("Invalid id type");
+  });
+
+  it('Deve retornar Error "Teacher with students associated.".', async () => {
+    const id = 4
+    responseHttp = await chai
+      .request(app)
+      .delete(`/api/professor/${id}`)
+      
+    const { status, body } = responseHttp;
+    expect(status).to.be.equal(500);
+    expect(body).to.deep.equal({
+      "error": "Teacher with students associated."
+    });
+  });
 });
