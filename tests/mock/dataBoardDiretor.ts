@@ -7,3 +7,11 @@ export const dataBoardDiretor = [
     "email": "moreira@school.com"
   }
 ]
+
+export const dataBoardPostDiretor = {
+  nome: 'Joao Carlos'
+}
+
+export const dataBoardPutDiretor = {
+  name: 'Joao Carlos'
+}

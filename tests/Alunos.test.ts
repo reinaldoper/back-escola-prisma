@@ -3,7 +3,7 @@ import { Response } from 'superagent';
 import chaiHttp from 'chai-http';
 import app from '../src/index';
 const expect = chai.expect;
-import { dataBoard, dataBoardId } from './mock/dataBoardAlunos';
+import { dataBoard, dataBoardId, dataBoardPostStudent, dataBoardPutError } from './mock/dataBoardAlunos';
 
 chai.use(chaiHttp);
 let responseHttp: Response;
@@ -59,5 +59,30 @@ describe('Testes da API Alunos', () => {
     const { status, body } = responseHttp;
     expect(status).to.be.equal(400);
     expect(body.error).to.deep.equal("Invalid id type");
+  });
+
+  it('Deve retornar Invalid parameters.', async () => {
+    
+    responseHttp = await chai
+      .request(app)
+      .post('/api/aluno/')
+      .send(dataBoardPostStudent)
+
+    const { status, body } = responseHttp;
+    expect(status).to.be.equal(400);
+    expect(body.error).to.deep.equal("Invalid parameters");
+  });
+
+  it('Deve retornar Invalid parameters.', async () => {
+    const id = 8
+    responseHttp = await chai
+      .request(app)
+      .put(`/api/aluno/${id}`)
+      .send(dataBoardPutError)
+
+    const { status, body } = responseHttp;
+    
+    expect(status).to.be.equal(400);
+    expect(body.error).to.deep.equal("Invalid parameters");
   });
 });

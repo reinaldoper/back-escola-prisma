@@ -67,22 +67,6 @@ export const dataBoard = [
     "notas": []
   },
   {
-    "id": 8,
-    "nome": "Maria de Paula",
-    "role": "USER",
-    "email": "maria@hotmail.com",
-    "professor": {
-      "id": 5,
-      "nome": "Reinaldo Pereira",
-      "email": "reinaldo@school.com",
-      "createdAt": "2024-01-30T11:24:18.954Z",
-      "role": "ADMIN",
-      "disciplina": "programacao"
-    },
-    "createdAt": "2024-01-30T20:00:41.301Z",
-    "notas": []
-  },
-  {
     "id": 3,
     "nome": "João Pedro da Silva",
     "role": "USER",
@@ -159,6 +143,22 @@ export const dataBoard = [
         "alunoId": 10
       }
     ]
+  },
+  {
+    "id": 8,
+    "nome": "Maria de Paula",
+    "role": "USER",
+    "email": "maria@hotmail.com",
+    "professor": {
+      "id": 5,
+      "nome": "Reinaldo Pereira",
+      "email": "reinaldo@school.com",
+      "createdAt": "2024-01-30T11:24:18.954Z",
+      "role": "ADMIN",
+      "disciplina": "programacao"
+    },
+    "createdAt": "2024-01-30T20:00:41.301Z",
+    "notas": []
   }
 ]
 
@@ -177,4 +177,13 @@ export const dataBoardId = {
   },
   "createdAt": "2024-01-30T20:00:41.301Z",
   "notas": []
+}
+
+export const dataBoardPostStudent = {
+  nome: 'Reinaldo',
+  email: 'reinaldo@outlook.com',
+}
+
+export const dataBoardPutError = {
+  professorId: 5
 }

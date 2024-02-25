@@ -1,4 +1,4 @@
-import { dataBoardDiretor } from './mock/dataBoardDiretor';
+import { dataBoardDiretor, dataBoardPostDiretor, dataBoardPutDiretor } from './mock/dataBoardDiretor';
 import chai from 'chai';
 import { Response } from 'superagent';
 import chaiHttp from 'chai-http';
@@ -61,4 +61,28 @@ describe('Testes da API Diretor', () => {
     expect(status).to.be.equal(400);
     expect(body.error).to.deep.equal("Invalid id type");
   });
+
+  it('Deve retornar Diretor Invalid parameters.', async () => {
+    responseHttp = await chai
+      .request(app)
+      .post('/api/diretor/')
+      .send(dataBoardPostDiretor)
+    const { status, body } = responseHttp;
+    expect(status).to.be.equal(400);
+    expect(body.error).to.deep.equal('Invalid parameters');
+  });
+
+
+  it('Deve retornar DiretorPut Invalid parameters.', async () => {
+    const id = 1
+    responseHttp = await chai
+      .request(app)
+      .put(`/api/diretor/${id}`)
+      .send(dataBoardPutDiretor)
+    const { status, body } = responseHttp;
+    
+    expect(status).to.be.equal(400);
+    expect(body.error).to.deep.equal('Invalid parameters');
+  });
+
 });

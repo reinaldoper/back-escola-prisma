@@ -64,21 +64,21 @@ export const dataBoardTeachers = [
         "professorId": 5
       },
       {
-        "id": 8,
-        "nome": "Maria de Paula",
-        "idade": 25,
-        "email": "maria@hotmail.com",
-        "role": "USER",
-        "createdAt": "2024-01-30T20:00:41.301Z",
-        "professorId": 5
-      },
-      {
         "id": 9,
         "nome": "Matheus Henrique",
         "idade": 23,
         "email": "henrique@hotmail.com",
         "role": "USER",
         "createdAt": "2024-02-14T18:13:13.724Z",
+        "professorId": 5
+      },
+      {
+        "id": 8,
+        "nome": "Maria de Paula",
+        "idade": 25,
+        "email": "maria@hotmail.com",
+        "role": "USER",
+        "createdAt": "2024-01-30T20:00:41.301Z",
         "professorId": 5
       }
     ]
