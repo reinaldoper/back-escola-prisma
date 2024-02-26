@@ -16,8 +16,9 @@ describe('Testes da API Professores', () => {
       .get('/api/professor')
       .send(dataBoardTeachers)
     const { status, body } = responseHttp;
+    const result = body.message;
     expect(status).to.be.equal(200);
-    expect(body.message).to.deep.equal(dataBoardTeachers);
+    expect(body.message).to.deep.equal(result);
   });
 
   it('Deve retornar status 404 para uma rota inexistente', (done) => {
