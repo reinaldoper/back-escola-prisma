@@ -52,7 +52,7 @@ class Diretor {
     return result as unknown as IDiretor[];
   };
 
-  public updateDiretor = async (id: number, nome: string): Promise<IDiretor | string> => {
+  public updateDiretor = async (id: number, nome: string, email: string): Promise<IDiretor | string> => {
     const verify = await this.getDiretorById(id);
     if (!verify) {
       return "Diretor not found"
@@ -61,6 +61,7 @@ class Diretor {
         where: { id: id },
         data: {
           nome: nome,
+          email: email
         },
         select: {
           id: true,

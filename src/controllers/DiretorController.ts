@@ -32,8 +32,8 @@ class DiretorController implements DiretorDto {
   public updateDiretor = async (req: Request, res: Response) => {
     try {
       const { id } = req.params;
-      const { nome } = req.body;
-      const result = await this.diretor.updateDiretor(Number(id), nome);
+      const { nome, email } = req.body;
+      const result = await this.diretor.updateDiretor(Number(id), nome, email);
       return res.status(Status.OK).json({ message: result });
     } catch (error) {
       return res.status(Status.InternalError).json({ error: "Internal error" });
