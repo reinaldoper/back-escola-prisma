@@ -1,8 +1,5 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
-  provider = "prisma-client-js"
+  provider      = "prisma-client-js"
   binaryTargets = ["native", "debian-openssl-1.1.x"]
 }
 
@@ -11,42 +8,41 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 model Professor {
-  id        Int      @id @default(autoincrement())
-  nome      String 
-  email String @unique
-  createdAt DateTime @default(now())
-  role    Role     @default(ADMIN)
+  id         Int      @id @default(autoincrement())
+  nome       String
+  email      String   @unique
+  createdAt  DateTime @default(now())
+  role       Role     @default(ADMIN)
   disciplina String
-  alunos    Aluno[]
+  alunos     Aluno[]
 }
 
 model Aluno {
-  id         Int      @id @default(autoincrement())
-  nome       String
-  idade      Int
-  email String @unique
-  role    Role     @default(USER)
-  createdAt DateTime @default(now())
-  notas      Nota[]
-  professor  Professor? @relation(fields: [professorId], references: [id], onDelete: Restrict)
+  id          Int        @id @default(autoincrement())
+  nome        String
+  idade       Int
+  email       String     @unique
+  role        Role       @default(USER)
+  createdAt   DateTime   @default(now())
   professorId Int?
+  professor   Professor? @relation(fields: [professorId], references: [id], onDelete: Restrict)
+  notas       Nota[]
 }
 
 model Nota {
-  id       Int    @id @default(autoincrement())
+  id       Int     @id @default(autoincrement())
   valor    Float
   semestre String?
-  aluno    Aluno  @relation(fields: [alunoId], references: [id], onDelete: Cascade)
   alunoId  Int
+  aluno    Aluno   @relation(fields: [alunoId], references: [id], onDelete: Cascade)
 }
 
 model Diretor {
-  id   Int    @id @default(autoincrement())
-  nome String
-  email String @unique
-  role    Role     @default(DIR)
+  id        Int      @id @default(autoincrement())
+  nome      String
+  email     String   @unique
+  role      Role     @default(DIR)
   createdAt DateTime @default(now())
 }
 

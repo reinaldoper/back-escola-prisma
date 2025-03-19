@@ -12,3 +12,4 @@ if (!serverStarted) {
     });
     serverStarted = true;
 }
+exports.default = app_1.default;
