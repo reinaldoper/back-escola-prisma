@@ -7,6 +7,7 @@ class DiretorDto {
   public updateDiretor = async (req: Request, res: Response) =>{ return res }
   public deleteDiretor = async (req: Request, res: Response) =>{ return res }
   public createDiretor = async (req: Request, res: Response) =>{ return res }
+  public loginDiretor = async (req: Request, res: Response) =>{ return res }
 
 }
 

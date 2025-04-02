@@ -8,6 +8,19 @@ class DiretorController implements DiretorDto {
 
   constructor(private diretor = new Diretor()){}
 
+  public loginDiretor = async (req: Request, res: Response) => {
+    const { email } = req.body;
+    try {
+      const result = await this.diretor.getDiretorByEmail(email);
+      if (!result) {
+        return res.status(Status.Not_Found).json({ error: "User not found!" });
+      }
+      return res.status(Status.OK).json({ message: result });
+    } catch (error) {
+      return res.status(Status.InternalError).json({ error: "Erro interno" });
+    }
+  };
+
   public getDiretor = async (req: Request, res: Response) => {
     try {
       const result = await this.diretor.getDiretor();

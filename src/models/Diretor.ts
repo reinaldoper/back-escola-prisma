@@ -5,6 +5,18 @@ class Diretor {
 
   constructor(private prismaClient = prisma) { }
 
+  public getDiretorByEmail = async (email: string): Promise<IDiretor> => {
+      const result = await this.prismaClient.diretor.findUnique({
+        where: { email },
+        select: {
+          role: true,
+          nome: true,
+          email: true
+        }
+      })
+      return result as unknown as  IDiretor;
+  };
+
   public getDiretor = async (): Promise<IDiretor> => {
     const result = await this.prismaClient.diretor.findMany({
       select: {

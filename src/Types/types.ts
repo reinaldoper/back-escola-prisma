@@ -21,7 +21,9 @@ export interface INotas {
 }
 
 export interface IDiretor {
+  id: string;
+  role: string;
+  createdAt: string;
   nome: string;
   email: string;
-  role?: string;
 }
