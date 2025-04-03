@@ -16,6 +16,17 @@ const Prisma_1 = __importDefault(require("../PrismaClient/Prisma"));
 class Diretor {
     constructor(prismaClient = Prisma_1.default) {
         this.prismaClient = prismaClient;
+        this.getDiretorByEmail = (email) => __awaiter(this, void 0, void 0, function* () {
+            const result = yield this.prismaClient.diretor.findUnique({
+                where: { email },
+                select: {
+                    role: true,
+                    nome: true,
+                    email: true
+                }
+            });
+            return result;
+        });
         this.getDiretor = () => __awaiter(this, void 0, void 0, function* () {
             const result = yield this.prismaClient.diretor.findMany({
                 select: {
@@ -57,7 +68,7 @@ class Diretor {
             });
             return result;
         });
-        this.updateDiretor = (id, nome) => __awaiter(this, void 0, void 0, function* () {
+        this.updateDiretor = (id, nome, email) => __awaiter(this, void 0, void 0, function* () {
             const verify = yield this.getDiretorById(id);
             if (!verify) {
                 return "Diretor not found";
@@ -67,6 +78,7 @@ class Diretor {
                     where: { id: id },
                     data: {
                         nome: nome,
+                        email: email
                     },
                     select: {
                         id: true,

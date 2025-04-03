@@ -17,6 +17,19 @@ const Diretor_1 = __importDefault(require("../models/Diretor"));
 class DiretorController {
     constructor(diretor = new Diretor_1.default()) {
         this.diretor = diretor;
+        this.loginDiretor = (req, res) => __awaiter(this, void 0, void 0, function* () {
+            const { email } = req.body;
+            try {
+                const result = yield this.diretor.getDiretorByEmail(email);
+                if (!result) {
+                    return res.status(Status_1.Status.Not_Found).json({ error: "User not found!" });
+                }
+                return res.status(Status_1.Status.OK).json({ message: result });
+            }
+            catch (error) {
+                return res.status(Status_1.Status.InternalError).json({ error: "Erro interno" });
+            }
+        });
         this.getDiretor = (req, res) => __awaiter(this, void 0, void 0, function* () {
             try {
                 const result = yield this.diretor.getDiretor();
@@ -39,8 +52,8 @@ class DiretorController {
         this.updateDiretor = (req, res) => __awaiter(this, void 0, void 0, function* () {
             try {
                 const { id } = req.params;
-                const { nome } = req.body;
-                const result = yield this.diretor.updateDiretor(Number(id), nome);
+                const { nome, email } = req.body;
+                const result = yield this.diretor.updateDiretor(Number(id), nome, email);
                 return res.status(Status_1.Status.OK).json({ message: result });
             }
             catch (error) {

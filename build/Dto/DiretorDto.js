@@ -16,6 +16,7 @@ class DiretorDto {
         this.updateDiretor = (req, res) => __awaiter(this, void 0, void 0, function* () { return res; });
         this.deleteDiretor = (req, res) => __awaiter(this, void 0, void 0, function* () { return res; });
         this.createDiretor = (req, res) => __awaiter(this, void 0, void 0, function* () { return res; });
+        this.loginDiretor = (req, res) => __awaiter(this, void 0, void 0, function* () { return res; });
     }
 }
 exports.default = DiretorDto;

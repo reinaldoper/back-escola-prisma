@@ -13,4 +13,5 @@ routeDiretor.get('/api/diretor/:id', validate_diretor_1.errorIdDiretor, diretor.
 routeDiretor.put('/api/diretor/:id', validate_diretor_1.errorIdDiretor, validate_diretor_1.errorPutDiretor, diretor.updateDiretor);
 routeDiretor.delete('/api/diretor/:id', validate_diretor_1.errorIdDiretor, diretor.deleteDiretor);
 routeDiretor.post('/api/diretor', validate_diretor_1.errorDiretor, diretor.createDiretor);
+routeDiretor.patch('/api/diretor/login', diretor.loginDiretor);
 exports.default = routeDiretor;
