@@ -64,6 +64,19 @@ class Professores {
             });
             return data;
         });
+        this.getProfessorByEmail = (email) => __awaiter(this, void 0, void 0, function* () {
+            const data = yield this.prismaCLient.professor.findUnique({
+                where: { email: email },
+                select: {
+                    id: true,
+                    nome: true,
+                    role: true,
+                    email: true,
+                    disciplina: true,
+                }
+            });
+            return data;
+        });
         this.updateProfessor = (id, nome, disciplina) => __awaiter(this, void 0, void 0, function* () {
             const verify = yield this.getProfessorById(id);
             if (verify) {

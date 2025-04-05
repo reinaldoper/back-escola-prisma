@@ -16,6 +16,7 @@ class ProfessorDto {
         this.updateProfessor = (req, res) => __awaiter(this, void 0, void 0, function* () { return res; });
         this.deleteProfessor = (req, res) => __awaiter(this, void 0, void 0, function* () { return res; });
         this.createProfessor = (req, res) => __awaiter(this, void 0, void 0, function* () { return res; });
+        this.loginProfessor = (req, res) => __awaiter(this, void 0, void 0, function* () { return res; });
     }
 }
 exports.default = ProfessorDto;

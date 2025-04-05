@@ -13,4 +13,5 @@ routeProfessor.get('/api/professor', professor.getProfessores);
 routeProfessor.get('/api/professor/:id', validate_professor_1.errorIdProfessor, professor.getProfessorById);
 routeProfessor.put('/api/professor/:id', validate_professor_1.errorIdProfessor, validate_professor_1.errorResponsePut, professor.updateProfessor);
 routeProfessor.delete('/api/professor/:id', validate_professor_1.errorIdProfessor, professor.deleteProfessor);
+routeProfessor.patch('/api/professor/login', professor.loginProfessor);
 exports.default = routeProfessor;

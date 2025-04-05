@@ -7,6 +7,7 @@ class ProfessorDto {
   public updateProfessor = async (req: Request, res: Response) =>{ return res }
   public deleteProfessor = async (req: Request, res: Response) =>{ return res }
   public createProfessor = async (req: Request, res: Response) =>{ return res }
+  public loginProfessor = async (req: Request, res: Response) =>{ return res }
 
 }
 

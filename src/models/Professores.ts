@@ -58,6 +58,20 @@ class Professores {
     return data as unknown as IProfessor[];
   };
 
+  public getProfessorByEmail = async (email: string): Promise<IProfessor> => {
+    const data = await this.prismaCLient.professor.findUnique({
+      where: { email: email },
+      select: {
+        id: true,
+        nome: true,
+        role: true,
+        email: true,
+        disciplina: true,
+      }
+    })
+    return data as unknown as IProfessor;
+  };
+
   public updateProfessor = async (id: number, nome: string, disciplina: string): Promise<IProfessor | string> => {
     const verify = await this.getProfessorById(id);
     if (verify) {

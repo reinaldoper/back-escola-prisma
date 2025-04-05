@@ -26,6 +26,19 @@ class ProfessorController {
                 return res.status(Status_1.Status.InternalError).json({ error: "Internal error" });
             }
         });
+        this.loginProfessor = (req, res) => __awaiter(this, void 0, void 0, function* () {
+            const { email } = req.body;
+            try {
+                const result = yield this.professor.getProfessorByEmail(email);
+                if (!result) {
+                    return res.status(Status_1.Status.Not_Found).json({ error: "Teacher not found" });
+                }
+                return res.status(Status_1.Status.OK).json({ message: result });
+            }
+            catch (error) {
+                return res.status(Status_1.Status.InternalError).json({ error: "Internal error" });
+            }
+        });
         this.getProfessores = (req, res) => __awaiter(this, void 0, void 0, function* () {
             try {
                 const data = yield this.professor.getProfessores();

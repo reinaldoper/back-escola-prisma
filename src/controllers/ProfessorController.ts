@@ -17,6 +17,20 @@ class ProfessorController implements ProfessorDto {
     }
   }
 
+  public loginProfessor = async  (req: Request, res: Response) => {
+    const { email } = req.body;
+    try {
+      const result = await this.professor.getProfessorByEmail(email);
+      if (!result) {
+        return res.status(Status.Not_Found).json({ error: "Teacher not found" });
+      }
+      return res.status(Status.OK).json({ message: result });
+    } catch (error) {
+      return res.status(Status.InternalError).json({ error: "Internal error" });
+      
+    }
+  }
+
   public getProfessores = async (req: Request, res: Response) => {
     try {
       const data = await this.professor.getProfessores();
