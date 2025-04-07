@@ -14,4 +14,5 @@ routeAluno.get('/api/aluno/:id', validate_aluno_1.errorIdAluno, alunos.getAlunoB
 routeAluno.put('/api/aluno/:id', validate_aluno_1.errorIdAluno, validate_aluno_1.errorAlunoPut, alunos.updateAluno);
 routeAluno.delete('/api/aluno/:id', validate_aluno_1.errorIdAluno, alunos.deleteAluno);
 routeAluno.post('/api/aluno', validate_aluno_1.errorAluno, alunos.createAluno);
+routeAluno.patch('/api/aluno/email', alunos.getAlunoByEmail);
 exports.default = routeAluno;

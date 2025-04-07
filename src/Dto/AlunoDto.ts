@@ -7,6 +7,7 @@ class AlunoDto {
   public updateAluno = async (req: Request, res: Response) =>{ return res }
   public deleteAluno = async (req: Request, res: Response) =>{ return res }
   public createAluno = async (req: Request, res: Response) =>{ return res }
+  public getAlunoByEmail = async (req: Request, res: Response) =>{ return res }
 
 }
 

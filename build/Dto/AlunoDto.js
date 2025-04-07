@@ -16,6 +16,7 @@ class AlunoDto {
         this.updateAluno = (req, res) => __awaiter(this, void 0, void 0, function* () { return res; });
         this.deleteAluno = (req, res) => __awaiter(this, void 0, void 0, function* () { return res; });
         this.createAluno = (req, res) => __awaiter(this, void 0, void 0, function* () { return res; });
+        this.getAlunoByEmail = (req, res) => __awaiter(this, void 0, void 0, function* () { return res; });
     }
 }
 exports.default = AlunoDto;

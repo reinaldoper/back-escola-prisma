@@ -48,6 +48,22 @@ class Alunos {
 
   };
 
+  public getAlunoByEmail = async (email: string): Promise<IAluno> => {
+    const data = await this.prismaClient.aluno.findUnique({
+      where: { email: email },
+      select: {
+        id: true,
+        nome: true,
+        role: true,
+        email: true,
+        professor: true,
+        createdAt: true,
+        notas: true
+      }
+    })
+    return data as unknown as IAluno;
+  };
+
   public getAlunoById = async (id: number): Promise<IAluno[]> => {
     const data = await this.prismaClient.aluno.findUnique({
       where: { id: id },

@@ -26,6 +26,21 @@ class AlunosController {
                 return res.status(Status_1.Status.InternalError).json({ error: "Internal error" });
             }
         });
+        this.getAlunoByEmail = (req, res) => __awaiter(this, void 0, void 0, function* () {
+            try {
+                const { email } = req.body;
+                const result = yield this.alunos.getAlunoByEmail(email);
+                if (result) {
+                    return res.status(Status_1.Status.OK).json({ message: result });
+                }
+                else {
+                    return res.status(Status_1.Status.Not_Found).json({ error: "Aluno not found" });
+                }
+            }
+            catch (error) {
+                return res.status(Status_1.Status.InternalError).json({ error: "Internal error" });
+            }
+        });
         this.getAlunoById = (req, res) => __awaiter(this, void 0, void 0, function* () {
             try {
                 const { id } = req.params;

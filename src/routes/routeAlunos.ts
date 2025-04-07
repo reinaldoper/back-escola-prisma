@@ -12,6 +12,7 @@ routeAluno.get('/api/aluno/:id', errorIdAluno, alunos.getAlunoById)
 routeAluno.put('/api/aluno/:id', errorIdAluno, errorAlunoPut, alunos.updateAluno)
 routeAluno.delete('/api/aluno/:id', errorIdAluno, alunos.deleteAluno);
 routeAluno.post('/api/aluno', errorAluno, alunos.createAluno);
+routeAluno.patch('/api/aluno/email', alunos.getAlunoByEmail);
 
 
 

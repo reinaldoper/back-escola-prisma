@@ -56,6 +56,21 @@ class Alunos {
                 return created;
             }
         });
+        this.getAlunoByEmail = (email) => __awaiter(this, void 0, void 0, function* () {
+            const data = yield this.prismaClient.aluno.findUnique({
+                where: { email: email },
+                select: {
+                    id: true,
+                    nome: true,
+                    role: true,
+                    email: true,
+                    professor: true,
+                    createdAt: true,
+                    notas: true
+                }
+            });
+            return data;
+        });
         this.getAlunoById = (id) => __awaiter(this, void 0, void 0, function* () {
             const data = yield this.prismaClient.aluno.findUnique({
                 where: { id: id },

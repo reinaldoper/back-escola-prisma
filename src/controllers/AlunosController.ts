@@ -18,6 +18,20 @@ class AlunosController implements AlunoDto {
     }
   }
 
+  public getAlunoByEmail = async (req: Request, res: Response) => {
+    try {
+      const { email } = req.body;
+      const result = await this.alunos.getAlunoByEmail(email);
+      if (result) {
+        return res.status(Status.OK).json({ message: result });
+      } else {
+        return res.status(Status.Not_Found).json({ error: "Aluno not found" });
+      }
+    } catch (error) {
+      return res.status(Status.InternalError).json({ error: "Internal error" });
+    }
+  };
+
 
   public getAlunoById = async (req: Request, res: Response) => {
     try {
