@@ -1,19 +1,26 @@
-# Projeto Escolar API
+# 📚 Projeto API Escolar
 
-- Este é um projeto simples de uma API para uma escola, desenvolvido com Node.js, ORM Prisma, Express e TypeScript.
+Este projeto consiste em uma API voltada para a gestão de dados escolares, desenvolvida utilizando **Node.js**, **Express**, **Prisma ORM** e **TypeScript**.
 
-## License
+A API permite o gerenciamento de professores, alunos, notas e diretores, com funcionalidades básicas de cadastro e consulta.
 
-[license](./LICENCE)
+---
 
-## Instalação
+## 📄 Licença
 
-- Certifique-se de ter o Node.js e o npm instalados em sua máquina. Em seguida, siga os passos abaixo:
+Este projeto está licenciado sob os termos definidos no arquivo [LICENSE](./LICENCE).
 
-## Clone o repositório:
+---
 
-```shell
-   git clone git@github.com:reinaldoper/escola-prisma.git
+## ⚙️ Instalação e Execução
+
+Antes de começar, certifique-se de ter o **Node.js** e o **npm** instalados em sua máquina.
+
+### 1. Clone o repositório
+
+```bash
+git clone git@github.com:reinaldoper/escola-prisma.git
+
 ```
 
 ## Instale as dependências:
@@ -28,12 +35,12 @@
 `npm run dev`
 
 
-## Endpoints
+## 🔌 Endpoints Disponíveis
 
-- Rotas de Professor
+- ➕ Cadastrar Professor
 
 - POST /api/professor
-- Adiciona um novo professor
+>Adiciona um novo professor
 
 ### Payload esperado:
 
@@ -45,7 +52,10 @@
 }
 ```
 
-### UM GET retornara a lista de professores cadastrados, sua disciplina e a lista de alunos
+## 📄 Listar Professores:
+
+- GET /api/professor
+>Retorna todos os professores cadastrados, suas disciplinas e respectivos alunos.
 
 ```shell
 message": [
@@ -74,10 +84,11 @@ message": [
 }
 ```
 
-## Rotas de Alunos
+## 👨‍🎓 Alunos
+- ➕ Cadastrar Aluno
 
 - POST /api/aluno
-- Adiciona um novo aluno.
+>Cadastra um novo aluno e o associa a um professor existente.
 
 ### Payload esperado:
 
@@ -89,10 +100,12 @@ message": [
 }
 ```
 
-## Rota de Notas
+## 📝 Notas
+
+- ➕ Registrar Nota
 
 - POST /api/notas
-- Adiciona uma nova nota.
+>Registra uma nova nota para um aluno.
 
 ### Payload esperado:
 
@@ -103,10 +116,11 @@ message": [
 }
 ```
 
-## Rota de Diretor
+## 🧑‍💼 Diretores
+- ➕ Cadastrar Diretor
 
 - POST /api/diretor
-- Adiciona um novo diretor.
+>Adiciona um novo diretor.
 
 ### Payload esperado:
 
@@ -118,7 +132,7 @@ message": [
 ```
 
 
-### Rota da API com deploy:
+## 🌐 Deploy:
 
 `https://escola-prisma.vercel.app/`
 
