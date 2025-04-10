@@ -29,6 +29,11 @@ git clone git@github.com:reinaldoper/escola-prisma.git
 
 `npm install`
 
+## Antes de rodar o servidor, ajuste o .env:
+
+`DATABASE_URL="seu_bando_de_dados_postgresql"
+ PORT=3001`
+
 
 ## Inicie o servidor:
 
